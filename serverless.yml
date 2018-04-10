@@ -1,5 +1,5 @@
 service:
-  name: mañana-mailer
+  name: manana-mailer
 
 # Add the serverless-webpack plugin
 plugins:
