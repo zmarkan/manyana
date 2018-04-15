@@ -8,11 +8,21 @@ plugins:
 provider:
   name: aws
   runtime: nodejs6.10
+  profile: serverless-admin
 
 functions:
   hello:
-    handler: handler.hello
+    handler: src/handler.hello
     events:
       - http:
           method: get
           path: hello
+  eod_reminder: 
+      handler: src/reminder.morning
+      
+      events: 
+        - http:
+            method: post
+            path: reminder/eod
+        - schedule: cron(0 8 * * MON-FRI *)
+
